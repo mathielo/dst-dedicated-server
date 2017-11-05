@@ -1,0 +1,29 @@
+version: '3'
+services:
+  dst_caves:
+    image: mathielo/dst-dedicated-server:latest
+    ports:
+      - 10998:10998/udp
+    networks:
+      - dst_cluster
+    links:
+      - dst_master
+    volumes:
+      - ./DSTClusterConfig:/home/dst/.klei/DoNotStarveTogether/DSTWhalesCluster
+    environment:
+      - SHARD_NAME=Caves
+
+  dst_master:
+    image: mathielo/dst-dedicated-server:latest  
+    networks:
+      - dst_cluster
+    ports:
+      - 10999:10999/udp
+    volumes:
+      - ./DSTClusterConfig:/home/dst/.klei/DoNotStarveTogether/DSTWhalesCluster
+    environment:
+      - SHARD_NAME=Master
+
+networks:
+  dst_cluster:
+
