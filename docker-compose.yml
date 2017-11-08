@@ -1,6 +1,7 @@
 version: '3'
 services:
   dst_caves:
+    container_name: dst_caves
     image: mathielo/dst-dedicated-server:latest
     ports:
       - 10998:10998/udp
@@ -14,6 +15,7 @@ services:
       - SHARD_NAME=Caves
 
   dst_master:
+    container_name: dst_master
     image: mathielo/dst-dedicated-server:latest  
     networks:
       - dst_cluster
