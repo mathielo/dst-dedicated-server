@@ -18,9 +18,10 @@ RUN mkdir server_dst
 # Install Don't Starve Together
 RUN ./steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 +login anonymous +force_install_dir /home/dst/server_dst +app_update 343050 validate +quit
 
-VOLUME ["/home/dst/.klei/DoNotStarveTogether", "/mods"]
+VOLUME ["/home/dst/.klei/DoNotStarveTogether"]
+
+COPY ["mods/dedicated_server_mods_setup.lua", "/home/dst/server_dst/mods/"]
 
 COPY ["start-container-server.sh", "/home/dst/"]
 
 ENTRYPOINT ["/home/dst/start-container-server.sh"]
-
