@@ -1,0 +1,4 @@
+modoverrides.lua
+server_*.txt
+save/
+backup/
