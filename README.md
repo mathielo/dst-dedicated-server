@@ -2,6 +2,12 @@
 
 Set up dedicated servers for DST easily with Docker containers. The purpose of this project is to have DST servers up and running with the bare-minimum necessary setup, leaving the "work" to customize your sever the way you want :)
 
+## :construction: Important notice
+
+Currently the game is autosaved once each (game) day. Stopping the containers **DOES NOT SAVE THE GAME**. This is a desired feature to be implemented further down the road. 
+
+For now you ma manually save your game by using the console command `c_save()` when playing in your server as the admin.
+
 ## Installation
 
 For better performance, it's recommended to use Linux to host the containers. Recommended distro: **Debian 9**. Instructions will be focused for a Linux installation, but it should be easy to adapt to other OSs.
@@ -38,6 +44,8 @@ Check instructions on how to get your token in [`cluster_token.txt`](./DSTCluste
 You can easily do that replacing `InsertYourTokenHere` in the following command and executing it in your server:
 
     echo 'InsertYourTokenHere' > ~/dst-dedicated-server/DSTClusterConfig/cluster_token.txt
+
+:closed_lock_with_key: The account that generates the token automatically gains admin access in-game, meaning you can rollback, regenerate the world or use console commands while playing. 
 
 #### Done! :rainbow:
 
