@@ -20,8 +20,6 @@ RUN ./steamcmd.sh +@ShutdownOnFailedCommand 1 +@NoPromptForPassword 1 +login ano
 
 VOLUME ["/home/dst/.klei/DoNotStarveTogether"]
 
-COPY ["mods/dedicated_server_mods_setup.lua", "/home/dst/server_dst/mods/"]
-
 COPY ["start-container-server.sh", "/home/dst/"]
 
 ENTRYPOINT ["/home/dst/start-container-server.sh"]

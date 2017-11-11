@@ -11,6 +11,6 @@ return {
   --   configuration_options={
   --     ["CustomModSetting"]="value"
   --   },
-  --   enabled=true 
+  --   enabled=true
   -- },
 }

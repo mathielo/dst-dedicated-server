@@ -70,17 +70,20 @@ All the customizable files are:
 		- leveldataoverride.lua
 	- Caves/
 		- leveldataoverride.lua
+  - mods/
+    - dedicated_server_mods_setup.lua
+    - modoverrides.lua
 ```
 
 ## Managing Mods
 
 ### Mods must be "installed"
 
-Happens in [`mods/dedicated_server_mods_setup.lua`](./mods/dedicated_server_mods_setup.lua). See the instructions in the file to install the mods you want.
+Happens in [`DSTClusterConfig/mods/dedicated_server_mods_setup.lua`](./DSTClusterConfig/mods/dedicated_server_mods_setup.lua). See the instructions in the file to install the mods you want.
 
 ### Mods must be "enabled" (and can be configured)
 
-Check [`DSTClusterConfig/modoverrides.lua`](./DSTClusterConfig/modoverrides.lua).
+Check [`DSTClusterConfig/mods/modoverrides.lua`](./DSTClusterConfig/mods/modoverrides.lua).
 
 #### Enabling a mod
 
@@ -103,7 +106,7 @@ Unfortunately there's no _super simple_ way to figure out what options are avail
     * Mac/Linux: `~/.klei/DoNotStarveTogether/Cluster_{N}/Master/modoverrides.lua`
     * Windows: `C:\Users\<your name>\Documents\Klei\DoNotStarveTogether\Cluster_{N}\Master\modoverrides.lua`
     * `Cluster_{N}`: `{N}` is the number of the slot you used to host the game (1-5)
-1. Open this file to see the settings, you may use it as-is! Just paste it into `DSTClusterConfig/modoverrides.lua` before starting up your server!
+1. Open this file to see the settings, you may use it as-is! Just paste it into `DSTClusterConfig/mods/modoverrides.lua` before starting up your server!
 
 ## TODO:
 
