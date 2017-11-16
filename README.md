@@ -1,16 +1,40 @@
 # Don't Starve Together - Dedicated Server
 
-Set up dedicated servers for DST easily with Docker containers. The purpose of this project is to have DST servers up and running with the bare-minimum necessary setup, leaving the "work" to customize your sever the way you want :)
+Set up dedicated DST servers easily with Docker containers. The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup. 
 
-## :construction: Important notice
+# Important notice :construction: 
 
 Currently the game is autosaved once each (game) day. Stopping the containers **DOES NOT SAVE THE GAME**. This is a desired feature to be implemented further down the road. 
 
 For now you ma manually save your game by using the console command `c_save()` when playing in your server as the admin.
 
-## Installation
+# Installation
 
-For better performance, it's recommended to use Linux to host the containers. Recommended distro: **Debian 9**. Instructions will be focused for a Linux installation, but it should be easy to adapt to other OSs.
+Any OS that [supports Docker](https://docs.docker.com/engine/installation/#supported-platforms) can run the dedicated server.
+
+>☝️ Linux is the _recommended_ OS to host the containers for better performance gains
+
+This project was deployed and tested using **Debian 9**. Instructions will be focused on Linux - but it should be easy to adapt to any other OS.
+
+<details>
+<summary>Installation Overview</summary>
+
+* [Prepare the host](#prepare-the-host) (Install `git` & `docker`)
+* Prepare the dedicated server
+  * [Clone this project](#prepare-the-dedicated-server)
+  * [Generate `cluster_token.txt`](#generate-cluster_tokentxt)
+* Learn how to [manage (start/stop) your server](#managing-the-server)
+
+:cherries: Optionals:
+* [Customize your server](#customizing-the-server--world)
+* [Install Mods!](#managing-mods)
+</details>
+
+## Prepare the Host
+
+### Install Git
+
+    sudo apt-get install git
 
 ### Install Docker
 
@@ -22,20 +46,21 @@ Follow the official docs to install Docker on Linux. At first glance it might se
   * Enable your user to manage `docker` without the need of `sudo`
   * Configure Docker to start on boot
 
-If running in Mac OS or Windows, `docker-compose` comes with the [Docker installation](https://docs.docker.com/engine/installation/#desktop), no extra steps required.
+---
 
-You'll also need Git:
+<details>
+<summary>Mac OS / Windows</summary>
 
-    sudo apt-get install git
+You only need the [Docker desktop standalone](https://docs.docker.com/engine/installation/#desktop) as it has everything you need, no extra steps required.
+</details>
 
-
-### Preparing the server
+## Prepare the dedicated server
 
 Clone this repository in your home folder:
 
     cd ~ && git clone https://github.com/mathielo/dst-dedicated-server.git
 
-#### Setup your Cluster Token
+### Generate `cluster_token.txt`
 
 :warning: The cluster token is stored in the `cluster_token.txt` file and without it **your server won't run**.
 
@@ -47,68 +72,88 @@ You can easily do that replacing `InsertYourTokenHere` in the following command 
 
 :closed_lock_with_key: The account that generates the token automatically gains admin access in-game, meaning you can rollback, regenerate the world or use console commands while playing. 
 
-#### Done! :rainbow:
+:rainbow: Done! You are ready to start your server and play! 
 
-Now you should be set to go! Try spinning up the containers:
+# Managing the Server
 
-    cd ~/dst-dedicated-server && docker-compose up -d
+Now you should have everything you **need** to start your dedicated server. Don't forget to [customize](#customizing-the-server--world) / [install mods](#managing-mods) to your liking! ☺️ 
 
-The `-d` flag will make it run in `detached` mode. If you want to see the output try removing the flag. Be aware that if you're not running in detached mode the containers will be shutdown should your terminal session die / receive a kill signal. Alternatively, you can follow logs when running in detached mode: `docker logs -f dst_master` (or `dst_caves` for the caves shard).
+## Start the Server
 
-This will spin up a DST server with all the **default** configurations and no mods. Make sure to check below how to customize your server, have fun!
+From your installation folder, run `docker-compose` in [detached mode](https://docs.docker.com/compose/reference/up/) to start the server
 
-## Customizing the Server / World
+    cd ~/dst-dedicated-server
+    docker-compose up -d
 
-// TODO: Explaing the role of each file and what can be customized in each of them
+> :point_up: You can follow logs when running in detached mode: `docker logs -f dst_master` (or `dst_caves` for the caves shard).
 
-All the customizable files are:
+## Executing console commands
+
+It's possible to execute [game console commands](http://dontstarve.wikia.com/wiki/Console/Don%27t_Starve_Together_Commands) from the terminal by attaching to the Master shard:
+
+    docker attach dst_master
+
+> ⚠️  Caution! Every input will be forwarded to the container when attached. That means if you hit `CTRL-c` the container will receive `SIGINT` and will gracefully stop.
+
+> ☝️ It's only possible to attach to the Master shard (`dst_master` container) as it's the one who manages the slave (Caves shard, `dst_caves`). i.e. Running `c_shutdown()` on the Master shard will shutdown **all** shards, while running it on Caves would shutdown the Caves shard only.
+
+Once attached, you may run any commands to manage the game such as `c_save()`, `c_spanw()`, `c_regenerateworld()`, etc.
+
+❗️ To **detach** from the container, press the `CTRL-p CTRL-q` sequence. Hitting `CTRL-c` will **stop** the running container. Check [attach docs](https://docs.docker.com/engine/reference/commandline/attach/#extended-description) for more info.
+
+## Stopping the Server
+
+From the installation folder, run:
+
+    docker-compose down
+
+Alternatively, you may attach to the container and execute `c_shutdown()`.
+
+## Updating the game version
+
+The developers are constantly updating the game, which is really good. However if your game client version mismatch the server's, you won't be able to see your server listed in _Browse servers_. 
+
+To updated the game client, **simply stop and start** the server again. On every startup the containers updates the game version automatically.
+
+# Customizing the Server / World
+
+The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes. 
+
+> :point_up: Changing any files **other than the ones listed below** is only advised if you know what you're doing.
 
 ```
-- DSTClusterConfig/
-	- cluster.ini
-	- Master/
-		- leveldataoverride.lua
-	- Caves/
-		- leveldataoverride.lua
-  - mods/
-    - dedicated_server_mods_setup.lua
-    - modoverrides.lua
+DSTClusterConfig/
+  cluster.ini
+  Master/
+    leveldataoverride.lua
+  Caves/
+    leveldataoverride.lua
+  mods/
+    dedicated_server_mods_setup.lua
+    modoverrides.lua
 ```
 
-## Managing Mods
+## The Server: [`cluster.ini`](./DSTClusterConfig/cluster.ini)
 
-### Mods must be "installed"
+This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
 
-Happens in [`DSTClusterConfig/mods/dedicated_server_mods_setup.lua`](./DSTClusterConfig/mods/dedicated_server_mods_setup.lua). See the instructions in the file to install the mods you want.
+> :point_up: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
 
-### Mods must be "enabled" (and can be configured)
+## The World: `leveldataoverride.lua`
 
-Check [`DSTClusterConfig/mods/modoverrides.lua`](./DSTClusterConfig/mods/modoverrides.lua).
+Determines the settings for world generation for each shard, respectivelly:
 
-#### Enabling a mod
+* [`Master/leveldataoverride.lua`](./DSTClusterConfig/Master/leveldataoverride.lua)
+* [`Caves/leveldataoverride.lua`](./DSTClusterConfig/Caves/leveldataoverride.lua)
 
-Same as with client mods, in the server they also can be installed but not _enabled_. You **have to manually enable** each of the mods you want to play with. To do so, make sure to define `enabled=true` for each mod in `modoverrides.lua`:
+You may tweak them as much as you like, granted that the cave one always have both `id="DST_CAVE"` and `location="Cave"` defined.
 
-    -- "000000000" should be the WorkshopID for the mod you're enabling
-    ["workshop-000000000"]={ configuration_options={ }, enabled=true }
+# Managing Mods
 
-#### Configuring a mod
+Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, configure and enable mods. :alien:
 
-You can use the `configuration_options` dictionary for each mod in `modoverrides.lua` to set all the config options the mod supports. See my [custom `modoverrides.lua`](./DSTClusterConfig/modoverrides-custom.lua) for examples.
+# References
 
-Unfortunately there's no _super simple_ way to figure out what options are available as they are up to the mod developer - and differ for each mod. You may dig through the mod's source code, but that's not practical. Here's what I do to "generate" the `configuration_options` the _easy_ way:
-
-1. Open up the game, hit "Play"
-1. "Host Game". You _will_ create a local DST game in your computer
-1. Skip world config, focus on the "Mods" tab: enable & configure the server mods the way you want (you need to have "Subscribed" to the mods in the Steam Workshop for them to appear there)
-1. Hit "Generate World". Do actually create a game. Once the world was created, you may exit the game.
-1. Now a `modoverrides.lua` was generated for you based on the settings you chose! You may find it in:
-    * Mac/Linux: `~/.klei/DoNotStarveTogether/Cluster_{N}/Master/modoverrides.lua`
-    * Windows: `C:\Users\<your name>\Documents\Klei\DoNotStarveTogether\Cluster_{N}\Master\modoverrides.lua`
-    * `Cluster_{N}`: `{N}` is the number of the slot you used to host the game (1-5)
-1. Open this file to see the settings, you may use it as-is! Just paste it into `DSTClusterConfig/mods/modoverrides.lua` before starting up your server!
-
-## TODO:
-
-- [ ] Create skeleton files for easier customization (e.g predefined `leveloverride.lua`, whitelist/admin `.txt` files)
-- [ ] Automatically save the game on graceful shutdown (e.g. `docker-compse down`)
+* [How to setup dedicated server with cave on Linux](http://steamcommunity.com/sharedfiles/filedetails/?id=590565473)
+* [Dedicated Server Settings Guide](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/)
+* [Dedicated Server Command Line Options Guide](https://forums.kleientertainment.com/topic/64743-dedicated-server-command-line-options-guide/)
