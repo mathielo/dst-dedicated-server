@@ -16,7 +16,7 @@ services:
 
   dst_master:
     container_name: dst_master
-    image: mathielo/dst-dedicated-server:latest  
+    image: mathielo/dst-dedicated-server:latest
     networks:
       - dst_cluster
     ports:
@@ -25,6 +25,11 @@ services:
       - ./DSTClusterConfig:/home/dst/.klei/DoNotStarveTogether/DSTWhalesCluster
     environment:
       - SHARD_NAME=Master
+
+    # These allow to stdin when attaching to the container via `docker attach`
+    # Any server commands should be sent to the master shard as it manages its slaves (Caves)
+    stdin_open: true
+    tty: true
 
 networks:
   dst_cluster:

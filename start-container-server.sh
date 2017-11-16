@@ -6,14 +6,14 @@
 
 # Copy modoverrides.lua
 ds_mods_setup="$HOME/.klei/DoNotStarveTogether/DSTWhalesCluster/mods/dedicated_server_mods_setup.lua"
-if [ -f "$ds_mods_setup" ] 
+if [ -f "$ds_mods_setup" ]
 then
 	cp $ds_mods_setup "$HOME/server_dst/mods/"
 fi
 
 # Copy modoverrides.lua
 modoverrides="$HOME/.klei/DoNotStarveTogether/DSTWhalesCluster/mods/modoverrides.lua"
-if [ -f "$modoverrides" ] 
+if [ -f "$modoverrides" ]
 then
 	cp $modoverrides "$HOME/.klei/DoNotStarveTogether/DSTWhalesCluster/Master/"
 	cp $modoverrides "$HOME/.klei/DoNotStarveTogether/DSTWhalesCluster/Caves/"
