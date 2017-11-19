@@ -54,7 +54,7 @@ Clone this repository in your home folder:
 
     cd ~ && git clone https://github.com/mathielo/dst-dedicated-server.git
 
-See more info in [Managing the Server](./ManagingTheServer.md).
+See more info in [Managing the Server](./scripts).
 
 ### Generate `cluster_token.txt`
 
@@ -74,7 +74,7 @@ You can easily do that replacing `InsertYourTokenHere` in the following command 
 
 Now you should have everything you **need** to start your dedicated server. Don't forget to [customize](#customizing-the-server--world) / [install mods](#managing-mods) to your liking! :blush:
 
-See the full docs on [how to manage your server](./ManagingTheServer.md).
+See the full docs on [how to manage your server](./scripts).
 
 # Customizing the Server / World
 
