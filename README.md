@@ -1,18 +1,12 @@
 # Don't Starve Together - Dedicated Server
 
-Set up dedicated DST servers easily with Docker containers. The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup. 
-
-# Important notice :construction: 
-
-Currently the game is autosaved once each (game) day. Stopping the containers **DOES NOT SAVE THE GAME**. This is a desired feature to be implemented further down the road. 
-
-For now you ma manually save your game by using the console command `c_save()` when playing in your server as the admin.
+Set up dedicated DST servers easily with Docker containers. The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup.
 
 # Installation
 
 Any OS that [supports Docker](https://docs.docker.com/engine/installation/#supported-platforms) can run the dedicated server.
 
->☝️ Linux is the _recommended_ OS to host the containers for better performance gains
+>:point_up: Linux is the _recommended_ OS to host the containers for better performance gains
 
 This project was deployed and tested using **Debian 9**. Instructions will be focused on Linux - but it should be easy to adapt to any other OS.
 
@@ -60,6 +54,8 @@ Clone this repository in your home folder:
 
     cd ~ && git clone https://github.com/mathielo/dst-dedicated-server.git
 
+See more info in [Managing the Server](./ManagingTheServer.md).
+
 ### Generate `cluster_token.txt`
 
 :warning: The cluster token is stored in the `cluster_token.txt` file and without it **your server won't run**.
@@ -70,54 +66,19 @@ You can easily do that replacing `InsertYourTokenHere` in the following command 
 
     echo 'InsertYourTokenHere' > ~/dst-dedicated-server/DSTClusterConfig/cluster_token.txt
 
-:closed_lock_with_key: The account that generates the token automatically gains admin access in-game, meaning you can rollback, regenerate the world or use console commands while playing. 
+:closed_lock_with_key: The account that generates the token automatically gains admin access in-game, meaning you can rollback, regenerate the world or use console commands while playing.
 
-:rainbow: Done! You are ready to start your server and play! 
+:rainbow: Done! You are ready to start your server and play!
 
 # Managing the Server
 
-Now you should have everything you **need** to start your dedicated server. Don't forget to [customize](#customizing-the-server--world) / [install mods](#managing-mods) to your liking! ☺️ 
+Now you should have everything you **need** to start your dedicated server. Don't forget to [customize](#customizing-the-server--world) / [install mods](#managing-mods) to your liking! :blush:
 
-## Start the Server
-
-From your installation folder, run `docker-compose` in [detached mode](https://docs.docker.com/compose/reference/up/) to start the server
-
-    cd ~/dst-dedicated-server
-    docker-compose up -d
-
-> :point_up: You can follow logs when running in detached mode: `docker logs -f dst_master` (or `dst_caves` for the caves shard).
-
-## Executing console commands
-
-It's possible to execute [game console commands](http://dontstarve.wikia.com/wiki/Console/Don%27t_Starve_Together_Commands) from the terminal by attaching to the Master shard:
-
-    docker attach dst_master
-
-> ⚠️  Caution! Every input will be forwarded to the container when attached. That means if you hit `CTRL-c` the container will receive `SIGINT` and will gracefully stop.
-
-> ☝️ It's only possible to attach to the Master shard (`dst_master` container) as it's the one who manages the slave (Caves shard, `dst_caves`). i.e. Running `c_shutdown()` on the Master shard will shutdown **all** shards, while running it on Caves would shutdown the Caves shard only.
-
-Once attached, you may run any commands to manage the game such as `c_save()`, `c_spanw()`, `c_regenerateworld()`, etc.
-
-❗️ To **detach** from the container, press the `CTRL-p CTRL-q` sequence. Hitting `CTRL-c` will **stop** the running container. Check [attach docs](https://docs.docker.com/engine/reference/commandline/attach/#extended-description) for more info.
-
-## Stopping the Server
-
-From the installation folder, run:
-
-    docker-compose down
-
-Alternatively, you may attach to the container and execute `c_shutdown()`.
-
-## Updating the game version
-
-The developers are constantly updating the game, which is really good. However if your game client version mismatch the server's, you won't be able to see your server listed in _Browse servers_. 
-
-To updated the game client, **simply stop and start** the server again. On every startup the containers updates the game version automatically.
+See the full docs on [how to manage your server](./ManagingTheServer.md).
 
 # Customizing the Server / World
 
-The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes. 
+The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes.
 
 > :point_up: Changing any files **other than the ones listed below** is only advised if you know what you're doing.
 
@@ -133,11 +94,13 @@ DSTClusterConfig/
     modoverrides.lua
 ```
 
-## The Server: [`cluster.ini`](./DSTClusterConfig/cluster.ini)
+## The Server: `cluster.ini`
 
 This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
 
 > :point_up: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
+
+By default the server will autosave once every game day (`autosaver_enabled = true`).
 
 ## The World: `leveldataoverride.lua`
 
