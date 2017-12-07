@@ -1,6 +1,8 @@
 # Don't Starve Together - Dedicated Server
 
-Set up dedicated DST servers easily with Docker containers. The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup.
+DST Dedicated Server Guide for all platforms (Linux, Mac, Windows) with Docker.
+
+The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup.
 
 # Installation
 
@@ -10,8 +12,7 @@ Any OS that [supports Docker](https://docs.docker.com/engine/installation/#suppo
 
 This project was deployed and tested using **Debian 9**. Instructions will be focused on Linux - but it should be easy to adapt to any other OS.
 
-<details>
-<summary>Installation Overview</summary>
+### Installation Overview
 
 * [Prepare the host](#prepare-the-host) (Install `git` & `docker`)
 * Prepare the dedicated server
@@ -22,7 +23,6 @@ This project was deployed and tested using **Debian 9**. Instructions will be fo
 :cherries: Optionals:
 * [Customize your server](#customizing-the-server--world)
 * [Install Mods!](#managing-mods)
-</details>
 
 ## Prepare the Host
 
@@ -42,11 +42,9 @@ Follow the official docs to install Docker on Linux. At first glance it might se
 
 ---
 
-<details>
-<summary>Mac OS / Windows</summary>
+**Mac OS / Windows**
 
 You only need the [Docker desktop standalone](https://docs.docker.com/engine/installation/#desktop) as it has everything you need, no extra steps required.
-</details>
 
 ## Prepare the dedicated server
 
@@ -94,7 +92,9 @@ DSTClusterConfig/
     modoverrides.lua
 ```
 
-## The Server: `cluster.ini`
+## The Server
+
+* [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
 
 This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
 
@@ -102,14 +102,17 @@ This file holds server attributes, such as `max_players`, `pause_when_empty`, `c
 
 By default the server will autosave once every game day (`autosaver_enabled = true`).
 
-## The World: `leveldataoverride.lua`
+## The World
 
 Determines the settings for world generation for each shard, respectivelly:
 
-* [`Master/leveldataoverride.lua`](./DSTClusterConfig/Master/leveldataoverride.lua)
-* [`Caves/leveldataoverride.lua`](./DSTClusterConfig/Caves/leveldataoverride.lua)
+* [DSTClusterConfig/Master/leveldataoverride.lua](./DSTClusterConfig/Master/leveldataoverride.lua)
+* [DSTClusterConfig/Caves/leveldataoverride.lua](./DSTClusterConfig/Caves/leveldataoverride.lua)
 
-You may tweak them as much as you like, granted that the cave one always have both `id="DST_CAVE"` and `location="Cave"` defined.
+You may tweak them as much as you like, granted that the cave one always have these defined:
+
+    id="DST_CAVE"
+    location="Cave"
 
 # Managing Mods
 
@@ -120,3 +123,8 @@ Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, co
 * [How to setup dedicated server with cave on Linux](http://steamcommunity.com/sharedfiles/filedetails/?id=590565473)
 * [Dedicated Server Settings Guide](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/)
 * [Dedicated Server Command Line Options Guide](https://forums.kleientertainment.com/topic/64743-dedicated-server-command-line-options-guide/)
+
+### Other links
+
+* [Thread in Klei forums](https://forums.kleientertainment.com/topic/84574-dedicated-server-setup-guide-on-any-platform-windowsmaclinux-with-docker/)
+* [Steam Guide](http://steamcommunity.com/sharedfiles/filedetails/?id=1206742951)
