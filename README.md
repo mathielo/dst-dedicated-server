@@ -32,17 +32,21 @@ This project was deployed and tested using **Debian 9**. Instructions will be fo
 
 ### Install Docker
 
+#### Linux
+
 Follow the official docs to install Docker on Linux. At first glance it might seem complicated, but the instructions are very detailed and thorough:
+
+> :cop: Make sure you have your own [_sudoer user_](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart) and perform all the steps logged as it. Running everything as `root` user will probably render you permissions issues down the road.
 
 * [Docker Engine CE](https://docs.docker.com/engine/installation/linux/docker-ce/debian/#set-up-the-repository)
 * [Docker Compose](https://docs.docker.com/compose/install/#install-compose)
-* Make sure to read through and follow the [post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/) (quite important!)
+* **IMPORTANT:** Read through and follow the :point_right: [post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/) :point_left:
   * Enable your user to manage `docker` without the need of `sudo`
   * Configure Docker to start on boot
 
 ---
 
-**Mac OS / Windows**
+#### Mac OS / Windows
 
 You only need the [Docker desktop standalone](https://docs.docker.com/engine/installation/#desktop) as it has everything you need, no extra steps required.
 
@@ -51,6 +55,8 @@ You only need the [Docker desktop standalone](https://docs.docker.com/engine/ins
 Clone this repository in your home folder:
 
     cd ~ && git clone https://github.com/mathielo/dst-dedicated-server.git
+
+> :cop: Do **not** `sudo git clone` or your might run into permission issues :angel: 
 
 See more info in [Managing the Server](./ManagingTheServer.md).
 
