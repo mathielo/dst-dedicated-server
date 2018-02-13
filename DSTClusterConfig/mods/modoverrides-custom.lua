@@ -2,8 +2,17 @@
 -- free to use it if you want!
 
 return {
+
+  -- Wormhole Marks
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=362175979
   ["workshop-362175979"]={ configuration_options={ ["Draw over FoW"]="disabled" }, enabled=true },
+
+  -- Extra Equip Slots
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=375850593
   ["workshop-375850593"]={ configuration_options={  }, enabled=true },
+
+  -- Health Info
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=375859599
   ["workshop-375859599"]={
     configuration_options={
       divider=5,
@@ -11,10 +20,13 @@ return {
       random_range=0,
       show_type=0,
       unknwon_prefabs=1,
-      use_blacklist=true 
+      use_blacklist=true
     },
-    enabled=true 
+    enabled=true
   },
+
+  -- Global Positions
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=378160973
   ["workshop-378160973"]={
     configuration_options={
       ENABLEPINGS=true,
@@ -23,10 +35,13 @@ return {
       SHAREMINIMAPPROGRESS=true,
       SHOWFIREICONS=true,
       SHOWPLAYERICONS=true,
-      SHOWPLAYERSOPTIONS=2 
+      SHOWPLAYERSOPTIONS=2
     },
-    enabled=true 
+    enabled=true
   },
+
+  -- Food Values - Item Tooltips (Server and Client)
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=458940297
   ["workshop-458940297"]={
     configuration_options={
       DFV_ClientPrediction="default",
@@ -41,10 +56,20 @@ return {
       DFV_ShowFireTime="default",
       DFV_ShowInsulation="default",
       DFV_ShowTemperature="default",
-      DFV_ShowUses="default" 
+      DFV_ShowUses="default"
     },
-    enabled=true 
+    enabled=true
   },
+
+  -- Quick Pick
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=501385076
   ["workshop-501385076"]={ configuration_options={  }, enabled=true },
-  ["workshop-588560555"]={ configuration_options={  }, enabled=true } 
+
+  -- Auto Tooth Trap Reset
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=588560555
+  ["workshop-588560555"]={ configuration_options={  }, enabled=true },
+
+  -- Epic Healthbar
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=1185229307
+  ["workshop-1185229307"]={ configuration_options={  }, enabled=true }
 }
