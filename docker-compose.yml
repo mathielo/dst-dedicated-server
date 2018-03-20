@@ -11,6 +11,7 @@ services:
       - dst_master
     volumes:
       - ./DSTClusterConfig:/home/dst/.klei/DoNotStarveTogether/DSTWhalesCluster
+      - ./volumes/mods:/home/dst/server_dst/mods
     environment:
       - SHARD_NAME=Caves
 
@@ -23,6 +24,7 @@ services:
       - 10999:10999/udp
     volumes:
       - ./DSTClusterConfig:/home/dst/.klei/DoNotStarveTogether/DSTWhalesCluster
+      - ./volumes/mods:/home/dst/server_dst/mods
     environment:
       - SHARD_NAME=Master
 
