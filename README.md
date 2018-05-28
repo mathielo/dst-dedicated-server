@@ -26,6 +26,8 @@ This project was deployed and tested using **Debian 9**. Instructions will be fo
 
 ## Prepare the Host
 
+Read about [server performance](./ServerPerformance.md) for useful tips to make the best use of your resources! That might also help you to [pick a host](./ServerPerformance.md#picking-a-host) machine if you're unsure about it.
+
 ### Install Git
 
     sudo apt-get install git
