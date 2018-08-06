@@ -137,7 +137,7 @@ You may tweak them as much as you like, granted that **the cave one** always hav
 
 This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others :link:](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
 
-> :bulb: On your **first setup** it's important you change at least the [`cluster_name`](./DSTClusterConfig/cluster.ini#L27) and [`cluster_password`](./DSTClusterConfig/cluster.ini#L29) to be able to identify and join your sever from the game's server list.
+> :bulb: On your **first setup** it's important to change at least the [`cluster_name`](./DSTClusterConfig/cluster.ini#L27) and [`cluster_password`](./DSTClusterConfig/cluster.ini#L29) to be able to identify and join your sever from the game's server list.
 
 > :cop: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
 
