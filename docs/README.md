@@ -18,8 +18,8 @@ These are the minimum required steps to have a server running:
 Enhance your server by customizing it to your liking!
 
 * Customize your server
-  * [World Settings](/../../#the-world) (World Size, Seasons, Difficulty, etc)
   * [Tweak server settings](/../../#the-server) (game mode, max players, Steam Group, description, etc.)
+  * [World Settings](/../../#the-world) (World Size, Seasons, Difficulty, etc)
   * [Install Mods](/../../DSTClusterConfig/mods)
   * [Set Admins, Bans and Whitelisted Players](./AdminBanWhitelist.md)
 * How to optimize your [DST Server Performance](./ServerPerformance.md)

@@ -32,8 +32,8 @@ These are the minimum required steps to have a server running:
 Enhance your server by customizing it to your liking!
 
 * Customize your server
-  * [World Settings](#the-world) (World Size, Seasons, Difficulty, etc)
   * [Tweak server settings](#the-server) (game mode, max players, Steam Group, description, etc.)
+  * [World Settings](#the-world) (World Size, Seasons, Difficulty, etc)
   * [Install Mods](DSTClusterConfig/mods)
   * [Set Admins, Bans and Whitelisted Players](docs/AdminBanWhitelist.md)
 * How to optimize your [DST Server Performance](docs/ServerPerformance.md)
@@ -98,7 +98,7 @@ Keep on reading to learn how to :point_down: [customize the server](#customizing
 
 ---
 
-# Customizing the Server / World
+# Customize the Server and World
 
 The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes.
 
@@ -119,18 +119,6 @@ DSTClusterConfig/
   whitelist.txt
 ```
 
-## The World
-
-Determines the settings for world generation for each shard, respectively:
-
-* [DSTClusterConfig/Master/leveldataoverride.lua](./DSTClusterConfig/Master/leveldataoverride.lua)
-* [DSTClusterConfig/Caves/leveldataoverride.lua](./DSTClusterConfig/Caves/leveldataoverride.lua)
-
-You may tweak them as much as you like, granted that **the cave one** always have these defined:
-
-    id="DST_CAVE"
-    location="Cave"
-
 ## The Server
 
 * [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
@@ -142,6 +130,18 @@ This file holds server attributes, such as `max_players`, `pause_when_empty`, `c
 > :cop: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
 
 By default the server will autosave once every game day (`autosaver_enabled = true`).
+
+## The World
+
+Determines the settings for world generation for each shard, respectively:
+
+* [DSTClusterConfig/Master/leveldataoverride.lua](./DSTClusterConfig/Master/leveldataoverride.lua)
+* [DSTClusterConfig/Caves/leveldataoverride.lua](./DSTClusterConfig/Caves/leveldataoverride.lua)
+
+You may tweak them as much as you like, granted that **the cave one** always have these defined:
+
+    id="DST_CAVE"
+    location="Cave"
 
 ## Mods
 
