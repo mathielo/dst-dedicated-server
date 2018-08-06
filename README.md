@@ -4,37 +4,53 @@ DST Dedicated Server Guide for all platforms (Linux, Mac, Windows) with Docker.
 
 The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup.
 
-# Installation
+## Installation
 
 Any OS that [supports Docker](https://docs.docker.com/engine/installation/#supported-platforms) can run the dedicated server.
 
->:point_up: Linux is the _recommended_ OS to host the containers for better performance gains
+>:bulb: Linux is the _recommended_ OS to host the containers for better performance gains
 
 This project was deployed and tested using **Debian 9**. Instructions will be focused on Linux - but it should be easy to adapt to any other OS.
 
 ### Installation Overview
 
-* [Prepare the host](#prepare-the-host) (Install `git` & `docker`)
-* Prepare the dedicated server
-  * [Clone this project](#prepare-the-dedicated-server)
+#### Essentials
+
+These are the minimum required steps to have a server running:
+
+* Prepare the host
+  * [Install Git](#prepare-the-host)
+  * [Install Docker](#install-docker)
+* Setup the server
+  * [Server files](#prepare-the-dedicated-server) (clone this repository)
   * [Generate `cluster_token.txt`](#generate-cluster_tokentxt)
-* Learn how to [manage (start/stop) your server](#managing-the-server)
+* [Manage the server](docs/ManagingTheServer.md) (how to start, save and stop)
+* [Basic settings setup](#the-server) (server name, password, etc.)
 
-:cherries: Optionals:
-* [Customize your server](#customizing-the-server--world)
-* [Install Mods!](#managing-mods)
+#### Optionals
 
-## Prepare the Host
+Enhance your server by customizing it to your liking!
 
-Read about [server performance](./ServerPerformance.md) for useful tips to make the best use of your resources! That might also help you to [pick a host](./ServerPerformance.md#picking-a-host) machine if you're unsure about it.
+* Customize your server
+  * [World Settings](#the-world) (World Size, Seasons, Difficulty, etc)
+  * [Tweak server settings](#the-server) (game mode, max players, Steam Group, description, etc.)
+  * [Install Mods](DSTClusterConfig/mods)
+  * [Set Admins, Bans and Whitelisted Players](docs/AdminBanWhitelist.md)
+* How to optimize your [DST Server Performance](docs/ServerPerformance.md)
 
-### Install Git
+---
+
+# Prepare the Host
+
+Read about [server performance](./docs/ServerPerformance.md) for useful tips to make the best use of your resources! That might also help you to [pick a host](./ServerPerformance.md#picking-a-host) machine if you're unsure about it.
+
+## Install Git
 
     sudo apt-get install git
 
-### Install Docker
+## Install Docker
 
-#### Linux
+### Linux
 
 Follow the official docs to install Docker on Linux. At first glance it might seem complicated, but the instructions are very detailed and thorough:
 
@@ -48,21 +64,21 @@ Follow the official docs to install Docker on Linux. At first glance it might se
 
 ---
 
-#### Mac OS / Windows
+### Mac OS / Windows
 
 You only need the [Docker desktop standalone](https://docs.docker.com/engine/installation/#desktop) as it has everything you need, no extra steps required.
 
-## Prepare the dedicated server
+# Prepare the dedicated server
 
 Clone this repository in your home folder:
 
     cd ~ && git clone https://github.com/mathielo/dst-dedicated-server.git
 
-> :cop: Do **not** `sudo git clone` or your might run into permission issues :angel: 
+> :cop: Do **not** `sudo git clone` or your might run into permission issues :angel:
 
-See more info in [Managing the Server](./ManagingTheServer.md).
+See more info in [Managing the Server](./docs/ManagingTheServer.md).
 
-### Generate `cluster_token.txt`
+## Generate `cluster_token.txt`
 
 :warning: The cluster token is stored in the `cluster_token.txt` file and without it **your server won't run**.
 
@@ -76,55 +92,68 @@ You can easily do that replacing `InsertYourTokenHere` in the following command 
 
 :rainbow: Done! You are ready to start your server and play!
 
-# Managing the Server
+# Manage the Server
 
-Now you should have everything you **need** to start your dedicated server. Don't forget to [customize](#customizing-the-server--world) / [install mods](#managing-mods) to your liking! :blush:
+You should now have everything you **need** to start playing! See the full docs on how to [manage your server](./docs/ManagingTheServer.md) to learn how to **start**, **save** the game and **stop** the server.
 
-See the full docs on [how to manage your server](./ManagingTheServer.md).
+Keep on reading to learn how to :point_down: [customize the server](#customizing-the-server--world) :point_down: and [install mods](#managing-mods) to your liking!
 
 # Customizing the Server / World
 
 The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes.
 
-> :point_up: Changing any files **other than the ones listed below** is only advised if you know what you're doing.
+> :rotating_light: Changing any files **other than the ones listed below** is only advised if you know what you're doing.
 
 ```
 DSTClusterConfig/
-  cluster.ini
-  Master/
-    leveldataoverride.lua
   Caves/
+    leveldataoverride.lua
+  Master/
     leveldataoverride.lua
   mods/
     dedicated_server_mods_setup.lua
     modoverrides.lua
+  adminlist.txt
+  blocklist.txt
+  cluster.ini
+  whitelist.txt
 ```
 
-## The Server
+# The World
 
-* [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
-
-This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
-
-> :point_up: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
-
-By default the server will autosave once every game day (`autosaver_enabled = true`).
-
-## The World
-
-Determines the settings for world generation for each shard, respectivelly:
+Determines the settings for world generation for each shard, respectively:
 
 * [DSTClusterConfig/Master/leveldataoverride.lua](./DSTClusterConfig/Master/leveldataoverride.lua)
 * [DSTClusterConfig/Caves/leveldataoverride.lua](./DSTClusterConfig/Caves/leveldataoverride.lua)
 
-You may tweak them as much as you like, granted that the cave one always have these defined:
+You may tweak them as much as you like, granted that **the cave one** always have these defined:
 
     id="DST_CAVE"
     location="Cave"
 
-# Managing Mods
+# The Server
+
+* [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
+
+This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others :link:](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
+
+> :bulb: On your **first setup** it's important you change at least the [`cluster_name`](./DSTClusterConfig/cluster.ini#L27) and [`cluster_password`](./DSTClusterConfig/cluster.ini#L29) to be able to identify and join your sever from the game's server list.
+
+> :cop: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
+
+By default the server will autosave once every game day (`autosaver_enabled = true`).
+
+# Mods
 
 Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, configure and enable mods. :alien:
+
+# Admins, Bans and Whitelists
+
+If you know what you're after, the `(admin|block|white)list.txt` files can be found within the [`DSTClusterConfig/`](./DSTClusterConfig) folder.
+
+You can find detailed information and a complete guide in the [Setting Admins, Bans and Whitelisted Players](./docs/AdminBanWhitelist.md) docs.
+
+---
 
 # References
 
