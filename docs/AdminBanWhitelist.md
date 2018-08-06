@@ -69,4 +69,4 @@ Easiest one if you have access to the server logs. Watch the logs (`tail -f` - o
 
 Sounds weird but it works quite well. This way the player id will show up in `blocklist.txt`. All you have to do is to **move** it from there to your desired `adminlist.txt` or `whitelist.txt`.
 
-> :point_up: Don't forget to actually (re)move it from `blocklist.txt` or that player won't be able to join the server! :cold_sweat:
+> :bulb: Don't forget to actually (re)move it from `blocklist.txt` or that player won't be able to join the server! :cold_sweat:

@@ -8,7 +8,7 @@ The purpose of this project is to have DST servers up and running with the **bar
 
 Any OS that [supports Docker](https://docs.docker.com/engine/installation/#supported-platforms) can run the dedicated server.
 
->:point_up: Linux is the _recommended_ OS to host the containers for better performance gains
+>:bulb: Linux is the _recommended_ OS to host the containers for better performance gains
 
 This project was deployed and tested using **Debian 9**. Instructions will be focused on Linux - but it should be easy to adapt to any other OS.
 
@@ -87,7 +87,7 @@ Don't forget to :point_down: [customize](#customizing-the-server--world) :point_
 
 The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes.
 
-> :point_up: Changing any files **other than the ones listed below** is only advised if you know what you're doing.
+> :rotating_light: Changing any files **other than the ones listed below** is only advised if you know what you're doing.
 
 ```
 DSTClusterConfig/
@@ -122,11 +122,11 @@ You may tweak them as much as you like, granted that **the cave one** always hav
 
 This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
 
-> :point_up: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
+> :bulb: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
 
 By default the server will autosave once every game day (`autosaver_enabled = true`).
 
-## Managing Mods
+## Mods
 
 Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, configure and enable mods. :alien:
 
