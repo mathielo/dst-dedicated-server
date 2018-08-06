@@ -10,7 +10,7 @@ These are the resources that matters when running a dedicated server.
 
 > **Recommended:** 1 CPU core available **per shard**.
 
-A _regular_ world consists of two shards: Forest + Caves. The shards themselves won’t multithread, so having many CPU cores won’t matter. It’s best to have better CPU power per core, and one CPU core available for **each** shard.
+A _regular_ world consists of two shards: Forest + Caves. The shards themselves won’t multi-thread, so having many CPU cores won’t matter. It’s best to have better CPU power per core, and one CPU core available for **each** shard.
 
 ### RAM
 
@@ -47,7 +47,7 @@ Now that you know what resource matters for the dedicated server, it's time to c
 
 ### OS (Operating System)
 
-This server will run on any OSs [supported by Docker](https://docs.docker.com/install/#supported-platforms). Bear in mind that different OSs have diferent **resouce** needs, so the less the OS uses, the more you have available for your server to run.
+This server will run on any OSs [supported by Docker](https://docs.docker.com/install/#supported-platforms). Bear in mind that different OSs have different **resource** needs, so the less the OS uses, the more you have available for your server to run.
 
 For this reason, **Linux** is the recommended platform, specially if you are comfortable with CLI and can run a server edition without any GUI. That's the most resource-efficient way of running your server.
 
@@ -67,7 +67,7 @@ First and foremost thing you need to have in mind when hosting in your own compu
 #### Downsides / Watch out for
 
 * Resources available vs. Server (and game client) performance
-* You need a solid internet connection if players are joining remotely
+* You need a solid Internet connection if players are joining remotely
 
 ### Hosting in a VPS (Virtual Private Server)
 

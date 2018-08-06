@@ -60,10 +60,10 @@ Easiest one if you have access to the server logs. Watch the logs (`tail -f` - o
 [01:52:28]: Client authenticated: (KU_aBCd1234) WesIsTheBes
 ```
 
-:point_up: You can see the identifier shows up twice. It's easier to visualize in the last line, where you can also see the player's nickname on Steam. From this example:
+:point_up: You can see the identifier shows up twice. It's easier to visualize in the **last line**, where you can also see the player's nickname on Steam. From this example:
 
 * Player unique identifier: `KU_aBCd1234`
-* Player name on Steam: `WesIsTheBes` (:thinking_face:)
+* Player name on Steam: `WesIsTheBes` (:thinking:)
 
 ## Ban the player through the game interface
 
