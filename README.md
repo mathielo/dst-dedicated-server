@@ -92,11 +92,11 @@ You can easily do that replacing `InsertYourTokenHere` in the following command 
 
 :rainbow: Done! You are ready to start your server and play!
 
-# Managing the Server
+# Manage the Server
 
-Now you should have everything you **need** to start your dedicated server. See the full docs on [how to manage your server](./docs/ManagingTheServer.md).
+You should now have everything you **need** to start playing! See the full docs on how to [manage your server](./docs/ManagingTheServer.md) to learn how to **start**, **save** the game and **stop** the server.
 
-Don't forget to :point_down: [customize](#customizing-the-server--world) :point_down: and [install mods](#managing-mods) to your liking! :blush:
+Keep on reading to learn how to :point_down: [customize the server](#customizing-the-server--world) :point_down: and [install mods](#managing-mods) to your liking!
 
 # Customizing the Server / World
 
@@ -135,9 +135,11 @@ You may tweak them as much as you like, granted that **the cave one** always hav
 
 * [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
 
-This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
+This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others :link:](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
 
-> :bulb: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
+> :bulb: On your **first setup** it's important you change at least the [`cluster_name`](./DSTClusterConfig/cluster.ini#L27) and [`cluster_password`](./DSTClusterConfig/cluster.ini#L29) to be able to identify and join your sever from the game's server list.
+
+> :cop: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
 
 By default the server will autosave once every game day (`autosaver_enabled = true`).
 
