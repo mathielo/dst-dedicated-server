@@ -4,7 +4,7 @@ DST Dedicated Server Guide for all platforms (Linux, Mac, Windows) with Docker.
 
 The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup.
 
-# Installation
+## Installation
 
 Any OS that [supports Docker](https://docs.docker.com/engine/installation/#supported-platforms) can run the dedicated server.
 
@@ -14,28 +14,43 @@ This project was deployed and tested using **Debian 9**. Instructions will be fo
 
 ### Installation Overview
 
-* [Prepare the host](#prepare-the-host) (Install `git` & `docker`)
-* Prepare the dedicated server
-  * [Clone this project](#prepare-the-dedicated-server)
+#### Essentials
+
+These are the minimum required steps to have a server running:
+
+* Prepare the host
+  * [Install Git](#prepare-the-host)
+  * [Install Docker](#install-docker)
+* Setup the server
+  * [Server files](#prepare-the-dedicated-server) (clone this repository)
   * [Generate `cluster_token.txt`](#generate-cluster_tokentxt)
-* Learn how to [manage (start/stop) your server](#managing-the-server)
+* [Manage the server](docs/ManagingTheServer.md) (how to start, save and stop)
+* [Basic settings setup](#the-server) (server name, password, etc.)
 
-:cherries: Optionals:
-* [Customize your server](#customizing-the-server--world)
-* [Install Mods!](#managing-mods)
-* [Set Admins, Banned and Whitelisted Players](#admins-bans-and-whitelists)
+#### Optionals
 
-## Prepare the Host
+Enhance your server by customizing it to your liking!
+
+* Customize your server
+  * [World Settings](#the-world) (World Size, Seasons, Difficulty, etc)
+  * [Tweak server settings](#the-server) (game mode, max players, Steam Group, description, etc.)
+  * [Install Mods](DSTClusterConfig/mods)
+  * [Set Admins, Bans and Whitelisted Players](docs/AdminBanWhitelist.md)
+* How to optimize your [DST Server Performance](docs/ServerPerformance.md)
+
+---
+
+# Prepare the Host
 
 Read about [server performance](./docs/ServerPerformance.md) for useful tips to make the best use of your resources! That might also help you to [pick a host](./ServerPerformance.md#picking-a-host) machine if you're unsure about it.
 
-### Install Git
+## Install Git
 
     sudo apt-get install git
 
-### Install Docker
+## Install Docker
 
-#### Linux
+### Linux
 
 Follow the official docs to install Docker on Linux. At first glance it might seem complicated, but the instructions are very detailed and thorough:
 
@@ -49,11 +64,11 @@ Follow the official docs to install Docker on Linux. At first glance it might se
 
 ---
 
-#### Mac OS / Windows
+### Mac OS / Windows
 
 You only need the [Docker desktop standalone](https://docs.docker.com/engine/installation/#desktop) as it has everything you need, no extra steps required.
 
-## Prepare the dedicated server
+# Prepare the dedicated server
 
 Clone this repository in your home folder:
 
@@ -63,7 +78,7 @@ Clone this repository in your home folder:
 
 See more info in [Managing the Server](./docs/ManagingTheServer.md).
 
-### Generate `cluster_token.txt`
+## Generate `cluster_token.txt`
 
 :warning: The cluster token is stored in the `cluster_token.txt` file and without it **your server won't run**.
 
@@ -104,7 +119,7 @@ DSTClusterConfig/
   whitelist.txt
 ```
 
-## The World
+# The World
 
 Determines the settings for world generation for each shard, respectively:
 
@@ -116,7 +131,7 @@ You may tweak them as much as you like, granted that **the cave one** always hav
     id="DST_CAVE"
     location="Cave"
 
-## The Server
+# The Server
 
 * [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
 
@@ -126,11 +141,11 @@ This file holds server attributes, such as `max_players`, `pause_when_empty`, `c
 
 By default the server will autosave once every game day (`autosaver_enabled = true`).
 
-## Mods
+# Mods
 
 Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, configure and enable mods. :alien:
 
-## Admins, Bans and Whitelists
+# Admins, Bans and Whitelists
 
 If you know what you're after, the `(admin|block|white)list.txt` files can be found within the [`DSTClusterConfig/`](./DSTClusterConfig) folder.
 

@@ -2,7 +2,7 @@
 
 ## Essentials
 
-These steps are minimum required to have a server running:
+These are the minimum required steps to have a server running:
 
 * Prepare the host
   * [Install Git](../#prepare-the-host)
