@@ -62,8 +62,6 @@ Follow the official docs to install Docker on Linux. At first glance it might se
   * Enable your user to manage `docker` without the need of `sudo`
   * Configure Docker to start on boot
 
----
-
 ### Mac OS / Windows
 
 You only need the [Docker desktop standalone](https://docs.docker.com/engine/installation/#desktop) as it has everything you need, no extra steps required.
@@ -156,6 +154,10 @@ If you know what you're after, the `(admin|block|white)list.txt` files can be fo
 You can find detailed information and a complete guide in the [Setting Admins, Bans and Whitelisted Players](./docs/AdminBanWhitelist.md) docs.
 
 ---
+
+# Contributing
+
+Contributions and feedback are always welcome! Feel free to open an [issue](/../../issues) or a [pull request](/../../pulls) with improvements!
 
 # References
 
