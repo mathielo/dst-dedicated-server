@@ -98,6 +98,8 @@ You should now have everything you **need** to start playing! See the full docs 
 
 Keep on reading to learn how to :point_down: [customize the server](#customizing-the-server--world) :point_down: and [install mods](#managing-mods) to your liking!
 
+---
+
 # Customizing the Server / World
 
 The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes.
@@ -119,7 +121,7 @@ DSTClusterConfig/
   whitelist.txt
 ```
 
-# The World
+## The World
 
 Determines the settings for world generation for each shard, respectively:
 
@@ -131,7 +133,7 @@ You may tweak them as much as you like, granted that **the cave one** always hav
     id="DST_CAVE"
     location="Cave"
 
-# The Server
+## The Server
 
 * [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
 
@@ -143,11 +145,11 @@ This file holds server attributes, such as `max_players`, `pause_when_empty`, `c
 
 By default the server will autosave once every game day (`autosaver_enabled = true`).
 
-# Mods
+## Mods
 
 Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, configure and enable mods. :alien:
 
-# Admins, Bans and Whitelists
+## Admins, Bans and Whitelists
 
 If you know what you're after, the `(admin|block|white)list.txt` files can be found within the [`DSTClusterConfig/`](./DSTClusterConfig) folder.
 
