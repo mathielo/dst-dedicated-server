@@ -32,8 +32,8 @@ These are the minimum required steps to have a server running:
 Enhance your server by customizing it to your liking!
 
 * Customize your server
-  * [World Settings](#the-world) (World Size, Seasons, Difficulty, etc)
   * [Tweak server settings](#the-server) (game mode, max players, Steam Group, description, etc.)
+  * [World Settings](#the-world) (World Size, Seasons, Difficulty, etc)
   * [Install Mods](DSTClusterConfig/mods)
   * [Set Admins, Bans and Whitelisted Players](docs/AdminBanWhitelist.md)
 * How to optimize your [DST Server Performance](docs/ServerPerformance.md)
@@ -61,8 +61,6 @@ Follow the official docs to install Docker on Linux. At first glance it might se
 * **IMPORTANT:** Read through and follow the :point_right: [post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/) :point_left:
   * Enable your user to manage `docker` without the need of `sudo`
   * Configure Docker to start on boot
-
----
 
 ### Mac OS / Windows
 
@@ -98,7 +96,9 @@ You should now have everything you **need** to start playing! See the full docs 
 
 Keep on reading to learn how to :point_down: [customize the server](#customizing-the-server--world) :point_down: and [install mods](#managing-mods) to your liking!
 
-# Customizing the Server / World
+---
+
+# Customize the Server and World
 
 The files listed below are the ones you'll likely be tweaking to customize your server and world to your likes.
 
@@ -119,7 +119,19 @@ DSTClusterConfig/
   whitelist.txt
 ```
 
-# The World
+## The Server
+
+* [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
+
+This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others :link:](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
+
+> :bulb: On your **first setup** it's important to change at least the [`cluster_name`](./DSTClusterConfig/cluster.ini#L27) and [`cluster_password`](./DSTClusterConfig/cluster.ini#L29) to be able to identify and join your sever from the game's server list.
+
+> :cop: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
+
+By default the server will autosave once every game day (`autosaver_enabled = true`).
+
+## The World
 
 Determines the settings for world generation for each shard, respectively:
 
@@ -131,29 +143,21 @@ You may tweak them as much as you like, granted that **the cave one** always hav
     id="DST_CAVE"
     location="Cave"
 
-# The Server
-
-* [DSTClusterConfig/cluster.ini](./DSTClusterConfig/cluster.ini)
-
-This file holds server attributes, such as `max_players`, `pause_when_empty`, `cluster_intention` - and [many others :link:](https://forums.kleientertainment.com/topic/64552-dedicated-server-settings-guide/).
-
-> :bulb: On your **first setup** it's important you change at least the [`cluster_name`](./DSTClusterConfig/cluster.ini#L27) and [`cluster_password`](./DSTClusterConfig/cluster.ini#L29) to be able to identify and join your sever from the game's server list.
-
-> :cop: Please handle with care. There are sections where `[ CHANGE THIS ]` denotes places you **should** change. There are also smaller secitions which **should not be touched** as it might compromise the communication between Master <-> Caves shards.
-
-By default the server will autosave once every game day (`autosaver_enabled = true`).
-
-# Mods
+## Mods
 
 Check the [detailed instructions](./DSTClusterConfig/mods) on how to install, configure and enable mods. :alien:
 
-# Admins, Bans and Whitelists
+## Admins, Bans and Whitelists
 
 If you know what you're after, the `(admin|block|white)list.txt` files can be found within the [`DSTClusterConfig/`](./DSTClusterConfig) folder.
 
 You can find detailed information and a complete guide in the [Setting Admins, Bans and Whitelisted Players](./docs/AdminBanWhitelist.md) docs.
 
 ---
+
+# Contributing
+
+Contributions and feedback are always welcome! Feel free to open an [issue](/../../issues) or a [pull request](/../../pulls) with improvements!
 
 # References
 
