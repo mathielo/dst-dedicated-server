@@ -78,9 +78,9 @@ See more info in [Managing the Server](./docs/ManagingTheServer.md).
 
 ## Generate `cluster_token.txt`
 
-:warning: The cluster token is stored in the `cluster_token.txt` file and without it **your server won't run**.
+:warning: The cluster token is stored in the `DSTClusterConfig/cluster_token.txt` file and without it **your server won't run**.
 
-Check instructions on how to get your token in [`cluster_token.txt`](./DSTClusterConfig/cluster_token.txt). After you get it, make sure to **delete everything** from this file and leave only your cluster token there, without any spaces or anything else.
+Check the [detailed instructions to generate a cluster token](./docs/ClusterToken.md). After you get it, make sure to **delete everything** from this file and leave only your cluster token there, without any spaces or anything else.
 
 You can easily do that replacing `InsertYourTokenHere` in the following command and executing it in your server:
 

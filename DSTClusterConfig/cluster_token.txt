@@ -1,10 +1,1 @@
-This file MUST be generated based on your Steam account. Enter the game and press "Play".
-After you're logged in, bring up the console (by pressing `~`) and type the following command:
-
-TheNet:GenerateClusterToken()
-
-Press enter. The console will go away, and a `cluster_token.txt` was generated in:
- - Unix: ~/.klei/DoNotStarveTogether
- - Windows: C:\Users\<your name>\Documents\Klei\DoNotStarveTogether
- 
- Get the generated file and OVERRIDE this one with the proper cluster token.
+YourClusterTokenGoesHere-SeeTheDocs!=~
