@@ -9,7 +9,7 @@ These are the minimum required steps to have a server running:
   * [Install Docker](/../../#install-docker)
 * Setup the server
   * [Server files](/../../#prepare-the-dedicated-server) (clone this repository)
-  * [Generate `cluster_token.txt`](/../../#generate-cluster_tokentxt)
+  * [Generate `cluster_token.txt`](./ClusterToken.md)
 * [Manage the server](./ManagingTheServer.md) (how to start, save and stop)
 * [Basic settings setup](/../../#the-server) (server name, password, etc.)
 
@@ -20,7 +20,7 @@ Enhance your server by customizing it to your liking!
 * Customize your server
   * [Tweak server settings](/../../#the-server) (game mode, max players, Steam Group, description, etc.)
   * [World Settings](/../../#the-world) (World Size, Seasons, Difficulty, etc)
-  * [Install Mods](/../../DSTClusterConfig/mods)
+  * [Install Mods](../DSTClusterConfig/mods)
   * [Set Admins, Bans and Whitelisted Players](./AdminBanWhitelist.md)
 * How to optimize your [DST Server Performance](./ServerPerformance.md)
 
