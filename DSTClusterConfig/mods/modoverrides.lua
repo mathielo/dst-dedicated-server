@@ -1,16 +1,29 @@
--- Use this file to enable and configure your mods. The mod will only be available in the game
--- if you set "enabled=true"!!!
---
--- Also, during the container startup this file will be copied to both Master/ and Caves/ folders. What's setup here
--- will be available in both shards!
---
--- See the example below:
+-- This is my own "custom default" modoverrides, with the base server mods I usually play with. Feel
+-- free to use it if you want!
 
 return {
-  -- ["workshop-000000000"]={
-  --   configuration_options={
-  --     ["CustomModSetting"]="value"
-  --   },
-  --   enabled=true
-  -- },
+  -- Food Values - Item Tooltips (Server and Client)
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=458940297
+  ["workshop-458940297"]={
+    configuration_options={
+      DFV_ClientPrediction="default",
+      DFV_FueledSettings="default",
+      DFV_Language="EN",
+      DFV_MinimalMode="default",
+      DFV_PercentReplace="default",
+      DFV_ShowACondition="default",
+      DFV_ShowADefence="default",
+      DFV_ShowAType="default",
+      DFV_ShowDamage="default",
+      DFV_ShowFireTime="default",
+      DFV_ShowInsulation="default",
+      DFV_ShowTemperature="default",
+      DFV_ShowUses="default"
+    },
+    enabled=true
+  },
+
+  -- Epic Healthbar
+  -- https://steamcommunity.com/sharedfiles/filedetails/?id=1185229307
+  ["workshop-1185229307"]={ configuration_options={  }, enabled=true }
 }

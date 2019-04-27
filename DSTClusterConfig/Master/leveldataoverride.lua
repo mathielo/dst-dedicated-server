@@ -21,7 +21,7 @@ return {
     berrybush="default",
     birds="default",
     boons="default",
-    branching="default",
+    branching="most",
     butterfly="default",
     buzzard="default",
     cactus="default",
@@ -46,7 +46,7 @@ return {
     liefs="default",
     lightning="default",
     lightninggoat="default",
-    loop="default",
+    loop="always",
     lureplants="default",
     marshbush="default",
     merm="default",
@@ -83,7 +83,7 @@ return {
     weather="default",
     wildfires="default",
     winter="default",
-    world_size="default",
+    world_size="large",
     wormhole_prefab="wormhole" 
   },
   random_set_pieces={
