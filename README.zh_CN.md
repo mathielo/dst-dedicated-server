@@ -83,7 +83,7 @@
 
 ## 生成 `cluster_token.txt` 令牌文件
 
-:warning: 饥荒服务器的令牌文件存储在`DSTClusterConfig/cluster_token.txt`文件中,如果没有这个文件，**饥荒服务器无法启动**.
+:warning: 饥荒服务器的令牌文件存储在`DSTClusterConfig/cluster_token.txt`文件中,如果没有这个文件，**饥荒服务器无法启动**.
 
 查看[如何生成Token令牌](./docs/ClusterToken.md)这个文档,并生成自己的Token令牌,替换这个`DSTClusterConfig/cluster_token.txt`文件.文件中不能存在空格或者其他字符
 
