@@ -14,6 +14,10 @@ services:
       - ./volumes/mods:/home/dst/server_dst/mods
     environment:
       - SHARD_NAME=Caves
+        # Replace these to run as another user/group
+        # Find a user's gid and uid with id _username_
+      - PUID=1000
+      - PGID=1000
 
   dst_master:
     container_name: dst_master
@@ -27,6 +31,10 @@ services:
       - ./volumes/mods:/home/dst/server_dst/mods
     environment:
       - SHARD_NAME=Master
+    # Replace this to run as another user
+    # Find a user's gid and pid with id _username_
+      - PUID=1000
+      - PGID=1000
 
     # These allow to stdin when attaching to the container via `docker attach`
     # Any server commands should be sent to the master shard as it manages its slaves (Caves)
