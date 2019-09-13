@@ -10,6 +10,10 @@ DST Dedicated Server Guide for all platforms (Linux, Mac, Windows) with Docker.
 
 The purpose of this project is to have DST servers up and running with the **bare minimum** necessary setup.
 
+## README in other languages
+
+* [README in Chinese](README.zh_CN.md)
+
 ## Installation
 
 Any OS that [supports Docker](https://docs.docker.com/engine/installation/#supported-platforms) can run the dedicated server.
