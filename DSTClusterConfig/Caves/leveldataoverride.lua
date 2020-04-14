@@ -35,7 +35,6 @@ return {
     monkey="default",
     mushroom="default",
     mushtree="default",
-    petrification="default",
     prefabswaps_start="default",
     reeds="default",
     regrowth="default",
@@ -60,5 +59,5 @@ return {
   },
   required_prefabs={ "multiplayer_portal" },
   substitutes={  },
-  version=3 
+  version=4
 }

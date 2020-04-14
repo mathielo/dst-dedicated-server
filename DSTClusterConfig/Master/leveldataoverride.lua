@@ -7,7 +7,6 @@ return {
   min_playlist_position=0,
   name="Default",
   numrandom_set_pieces=4,
-  ordered_story_setpieces={ "Sculptures_1", "Maxwell5" },
   override_level_string=false,
   overrides={
     alternatehunt="default",
@@ -38,9 +37,11 @@ return {
     frograin="default",
     goosemoose="default",
     grass="default",
+    has_ocean=true,
     houndmound="default",
     hounds="default",
     hunt="default",
+    keep_disconnected_tiles=true,
     krampus="default",
     layout_mode="LinkNodesByKeys",
     liefs="default",
@@ -54,6 +55,8 @@ return {
     meteorspawner="default",
     moles="default",
     mushroom="default",
+    no_joining_islands=true,
+    no_wormholes_to_disconnected_tiles=true,
     penguins="default",
     perd="default",
     petrification="default",
@@ -108,6 +111,7 @@ return {
     "Warzone_3" 
   },
   required_prefabs={ "multiplayer_portal" },
+  required_setpieces={ "Sculptures_1", "Maxwell5" },
   substitutes={  },
-  version=3 
+  version=4
 }
