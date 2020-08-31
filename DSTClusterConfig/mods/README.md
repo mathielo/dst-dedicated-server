@@ -29,7 +29,7 @@ Here's what I do to "generate" the `configuration_options` the _easy_ way:
 1. Hit "Generate World". Do actually create a game. Once the world was created, you may exit the game.
 1. Now a `modoverrides.lua` was generated for you based on the settings you chose! You may find it in:
     * Linux: `~/.klei/DoNotStarveTogether/Cluster_{N}/Master/modoverrides.lua`
-    * Mac: `~/Documents/Klei/DoNotStarveTogether/{Some Numbers}/Cluster_{N}/Master/modoverrides.lua`
+    * Mac: `~/Documents/Klei/DoNotStarveTogether/{SteamAccountID}/Cluster_{N}/Master/modoverrides.lua`
     * Windows: `C:\Users\<your name>\Documents\Klei\DoNotStarveTogether\Cluster_{N}\Master\modoverrides.lua`
     * `Cluster_{N}`: `{N}` is the number of the slot you used to host the game (1-5)
 1. Open this file to see the settings, you may use it as-is! Just paste it into `DSTClusterConfig/mods/modoverrides.lua` before starting up your server!
